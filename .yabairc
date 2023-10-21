@@ -1,13 +1,9 @@
-# === Load Scripting Additions ===
-
 sudo nvram boot-args=-arm64e_preview_abi
 sudo yabai --uninstall-sa
 sudo yabai --install-sa
 sudo yabai --load-sa
 
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-
-# === Tiling setting ===
 
 yabai -m config layout                      bsp
 
@@ -38,8 +34,6 @@ yabai -m config auto_balance                off
 yabai -m config mouse_modifier              fn
 yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
-yabai -m config external_bar                all:30:0
-# ===== Rules ==================================
 
 yabai -m rule --add label="Finder" app="^Finder$"
 title="(Co(py|nnect)|Move|Info|Pref)" manage=off
@@ -63,12 +57,7 @@ title="About This Mac" manage=off
 yabai -m rule --add label="HHKB" app="HHKB Keymap Tool" title="About This
 Mac" manage=off
 
-# ===== Signals ================================
-
-## Sample signal trigger that runs a command
-# yabai -m signal --add event=window_title_changed
 action="${ubersicht_spaces_refresh_command}"
-# ubersicht_spaces_refresh_command="osascript -e 'tell application id
 \"tracesOf.Uebersicht\" to refresh dwidget id \"simple-bar\"'"
 
 echo "yabai: configuration loaded...\\n"
