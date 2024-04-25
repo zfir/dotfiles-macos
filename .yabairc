@@ -7,11 +7,11 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 yabai -m config layout                      bsp
 
-yabai -m config top_padding                 10
-yabai -m config bottom_padding              10
-yabai -m config left_padding                10
-yabai -m config right_padding               10
-yabai -m config window_gap                  10
+yabai -m config top_padding                 5
+yabai -m config bottom_padding              5
+yabai -m config left_padding                5
+yabai -m config right_padding               5
+yabai -m config window_gap                  5
 
 yabai -m config mouse_follows_focus         off
 yabai -m config focus_follows_mouse         off
@@ -61,3 +61,5 @@ action="${ubersicht_spaces_refresh_command}"
 \"tracesOf.Uebersicht\" to refresh dwidget id \"simple-bar\"'"
 
 echo "yabai: configuration loaded...\\n"
+
+yabai -m config external_bar main:0:0
