@@ -10,6 +10,16 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Run Sketchybar together with AeroSpace
+# sketchbar has a built-in detection of already running process,
+# so it won't be run twice on AeroSpace restart
+after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
 [mode.main.binding]
     # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
     alt-enter = '''exec-and-forget osascript -e '
@@ -102,9 +112,13 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 5
-    inner.vertical =   5
-    outer.left =       5
-    outer.bottom =     5
-    outer.top =        5
-    outer.right =      5
+outer.top =     [
+  # offset of 32 on internal display, because of notch (16" MPB)
+  { monitor.'built-in.*' = 16 },
+  48
+]
+outer.right =      15
+outer.bottom =     15
+outer.left =       15
+inner.horizontal = 15
+inner.vertical =   15
