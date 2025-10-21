@@ -45,7 +45,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     alt-h = 'split horizontal'
     alt-v = 'split vertical'
 
-    alt-f = 'fullscreen'
+    alt-f = 'fullscreen --no-outer-gaps'
 
     alt-s = 'layout v_accordion' # 'layout stacking' in i3
     alt-w = 'layout h_accordion' # 'layout tabbed' in i3
@@ -114,8 +114,8 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 [gaps]
 outer.top =     [
   # offset of 32 on internal display, because of notch (16" MPB)
-  { monitor.'built-in.*' = 16 },
-  48
+  { monitor.'built-in.*' = 15 },
+  15
 ]
 outer.right =      15
 outer.bottom =     15
