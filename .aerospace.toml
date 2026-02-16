@@ -7,6 +7,9 @@
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 
+# Start AeroSpace at login
+start-at-login = true
+
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
@@ -122,7 +125,3 @@ outer.bottom =     15
 outer.left =       15
 inner.horizontal = 15
 inner.vertical =   15
-
-[[on-window-detected]]
-    if.app-id = 'com.apple.finder'
-    run = 'layout floating'
